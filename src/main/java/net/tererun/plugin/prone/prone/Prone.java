@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
+import org.bukkit.event.entity.EntityToggleSwimEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
@@ -35,7 +36,7 @@ public final class Prone extends JavaPlugin implements Listener, CommandExecutor
     }
 
     @EventHandler
-    public void onElytraDetect(EntityToggleGlideEvent e) {
+    public void onElytraDetect(EntityToggleSwimEvent e) {
         if (e.getEntity() instanceof Player) {
             if (enable.get(e.getEntity()) == 1) {
                 e.setCancelled(true);
@@ -57,7 +58,7 @@ public final class Prone extends JavaPlugin implements Listener, CommandExecutor
                     enable.put(player, 1);
                     sender.sendMessage(ChatColor.AQUA + "匍匐を有効にしました");
                     player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 99999, 2));
-                    player.setGliding(true);
+                    player.setSwimming(true);
                     return true;
                 } else {
                     enable.put(player, 0);
