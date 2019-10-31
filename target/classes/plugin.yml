@@ -1,0 +1,13 @@
+name: Prone
+version: Patch-1.0.0
+main: net.tererun.plugin.prone.prone.Prone
+api-version: 1.13
+authors: [tererun]
+description: Prone
+commands:
+  prone:
+    description: prone
+permissions:
+  prone:
+    description: prone
+    default: false
